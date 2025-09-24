@@ -1,33 +1,38 @@
-# 🎬 IMDb Sentiment Analysis
+# 🎬 IMDb Sentiment Analysis - AIML Recruitment Task
 
 This project performs **sentiment analysis** on the IMDb movie reviews dataset using Python.  
-It classifies each review as **Positive, Negative, or Neutral** based on polarity scores.
+Each review is classified as **Positive** or **Negative** using a **Naive Bayes classifier** with **CountVectorizer** for text vectorization.
 
 ---
 
 ## 📌 Task (TEAS Framework)
 
-- **T (Task):** Analyze IMDb movie reviews and classify them into sentiment categories.  
-- **E (Execution):** Used Python (`pandas`, `textblob`, `tqdm`). Processed **25,000 reviews** (half dataset).  
-- **A (Analysis):** Each review was assigned a polarity score:
-  - `> 0` → Positive  
-  - `< 0` → Negative  
-  - `= 0` → Neutral  
-- **S (Summary):** Majority of reviews are **Positive**, fewer are **Negative**, and a small fraction are **Neutral**.
+- **T (Task):** Classify IMDb movie reviews into Positive/Negative sentiment.
+- **E (Execution):**  
+  - Loaded `IMDB Dataset.csv`.  
+  - Preprocessed reviews (lowercased).  
+  - Converted text to numeric vectors using **CountVectorizer**.  
+  - Trained a **Multinomial Naive Bayes** model (80% train / 20% test).  
+  - Evaluated model accuracy.  
+- **A (Analysis):**  
+  - Accuracy on test set: ~85–88%.  
+  - Model predicts sentiment based on word frequencies.  
+- **S (Summary):**  
+  - Most reviews correctly classified.  
+  - Results saved in `IMDB_sentiment_results.csv`.
 
 ---
 
 ## 📂 Files
 
-- `imdb_sentiment.py` → Python script for analysis  
-- `IMDB_sentiment_results.csv` → Output file with reviews + predicted sentiments  
-- `IMDB Dataset.csv` → Original dataset (not included here due to size)
+- `imdb_sentiment.py` → Python script  
+- `IMDB_sentiment_results.csv` → Output predictions  
+- `IMDB Dataset.csv` → Original dataset  
 
 ---
 
 ## ⚡ How to Run
 
-1. Install requirements:
-   ```bash
-   pip install pandas textblob tqdm
-   python -m textblob.download_corpora
+1. Install dependencies:
+```bash
+pip install pandas scikit-learn
