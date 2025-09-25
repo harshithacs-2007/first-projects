@@ -1,38 +1,36 @@
-# 🎬 IMDb Sentiment Analysis - AIML Recruitment Task
+# 🎬 IMDb Sentiment Analysis – Naive Bayes
 
-This project performs **sentiment analysis** on the IMDb movie reviews dataset using Python.  
-Each review is classified as **Positive** or **Negative** using a **Naive Bayes classifier** with **CountVectorizer** for text vectorization.
+## 📌 Overview
+This project is part of the **AIML Recruitment Task (First Year)**.  
+We use the **IMDb Movie Review Dataset** (50,000 reviews: 25k positive, 25k negative) to build a simple **Naive Bayes classifier** that predicts whether a review is **positive** or **negative**.
 
 ---
 
-## 📌 Task (TEAS Framework)
+## ⚙️ Approach
+1. **Preprocessing**
+   - Converted all reviews to lowercase  
+   - Removed stopwords using `CountVectorizer`  
+   - Limited features to top 5000 words for efficiency  
+   - Converted sentiment labels: `positive → 1`, `negative → 0`  
 
-- **T (Task):** Classify IMDb movie reviews into Positive/Negative sentiment.
-- **E (Execution):**  
-  - Loaded `IMDB Dataset.csv`.  
-  - Preprocessed reviews (lowercased).  
-  - Converted text to numeric vectors using **CountVectorizer**.  
-  - Trained a **Multinomial Naive Bayes** model (80% train / 20% test).  
-  - Evaluated model accuracy.  
-- **A (Analysis):**  
-  - Accuracy on test set: ~85–88%.  
-  - Model predicts sentiment based on word frequencies.  
-- **S (Summary):**  
-  - Most reviews correctly classified.  
-  - Results saved in `IMDB_sentiment_results.csv`.
+2. **Model**
+   - Used **Multinomial Naive Bayes** (`MultinomialNB`)  
+   - Train-test split: **80% training, 20% testing**  
+
+3. **Evaluation**
+   - Accuracy: ~85–87% (depends on data split)  
+   - Classification report includes **precision, recall, F1-score**
 
 ---
 
 ## 📂 Files
-
-- `imdb_sentiment.py` → Python script  
-- `IMDB_sentiment_results.csv` → Output predictions  
-- `IMDB Dataset.csv` → Original dataset  
+- `sentiment_nb.py` → main Python script  
+- `IMDB Dataset.csv` → dataset (50,000 reviews, balanced)  
+- `IMDB_sentiment_results.csv` → predictions after running the script  
 
 ---
 
-## ⚡ How to Run
-
-1. Install dependencies:
+## ▶️ How to Run
 ```bash
 pip install pandas scikit-learn
+python sentiment_nb.py
